@@ -1,0 +1,57 @@
+extends layout.pug 
+block head 
+    title sign up
+block menu 
+        .logo
+          a(href='Home')
+            img(src='logo1.png', alt='logo')
+        a(href='Home')
+        nav
+          a(href='Home.')
+          ul
+            a(href='Home')
+            li.topnav
+              a(href='Home')
+              a(href='Home') דף הבית
+            li.topnav
+              a(href='signIn') כניסה למשתמשים
+            li.topnav
+              a(href='signUp') הרשמה
+block content 
+    form#form1(action='signUp' method='post')
+      fieldset
+        legend &#x5D4;&#x5E8;&#x5E9;&#x5DE;&#x5D4;
+        h3 !&#x5D1;&#x5E8;&#x5D5;&#x5DA; &#x5D4;&#x5D1;&#x5D0;
+        label(for='userName') :&#x5E9;&#x5DD; &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;
+        input#userName.registration(form='form1' type='text' required='' name='userName' onkeyup='validateUser()')
+        br
+        span#username-error.errors
+        label(for='password') :&#x5E1;&#x5D9;&#x5E1;&#x5DE;&#x5D4;
+        input#passwordinput.registration(form='form1' type='password' required='' name='password' onkeyup='validatePassword()')
+        br
+        span#password-error.errors
+        label(for='fullName') :&#x5E9;&#x5DD; &#x5DE;&#x5DC;&#x5D0;
+        input#fullName.registration(form='form1' type='text' required='' name='fullName' onkeyup='validateName()')
+        br
+        span#name-error.errors
+        label(for='email') :Email
+        input#email.registration(form='form1' type='email' required='' name='email' onkeyup='validateEmail()')
+        br
+        span#email-error.errors
+        label(for='birthday') :&#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA; &#x5DC;&#x5D9;&#x5D3;&#x5D4;
+        input#birthday.registration(form='form1' type='date' required='' name='birthday' min="1900-01-01" onkeyup='validateBD()' )
+        label(for='height') :(&#x5D1;&#x5E1;&quot;&#x5DE;) &#x5D2;&#x5D5;&#x5D1;&#x5D4;
+        input#height.registration(form='form1' type='number'  min='0' max='230' required='' name='height')
+        label(for='weight') :(&#x5D1;&#x5E7;&#x5D9;&#x5DC;&#x5D5;) &#x5DE;&#x5E9;&#x5E7;&#x5DC;
+        input#weight.registration(form='form1' type='number' min='0' max='150' required='' name='weight')
+        label(for='kite')  :&#x5D2;&#x5D5;&#x5D3;&#x5DC; &#x5E7;&#x5D9;&#x5D9;&#x5D8;
+        select#kites(name='kites' multiple='')
+          option(value='8') 8
+          option(value='9') 9
+          option(value='10') 10
+          option(value='11') 11
+          option(value='12') 12
+          option(value='13') 13
+        br
+        input.buttons(form='form1' type='submit' value='שלח')
+        br

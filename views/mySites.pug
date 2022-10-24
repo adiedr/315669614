@@ -1,0 +1,45 @@
+extends layout.pug 
+block head 
+    title My sites
+block menu 
+        .logo
+          a(href='Home')
+            img(src='logo1.png', alt='logo'  onclick="deleteCookie()")
+        a(href='Home')
+        nav
+          a(href='Home.')
+          ul
+            a(href='Home')
+            li.topnav
+              a(href='Home')
+              a(href='MySites') &#x5D4;&#x5D9;&#x5E2;&#x5D3;&#x5D9;&#x5DD; &#x5E9;&#x5DC;&#x5D9;
+            li.topnav
+              a(href='settings') &#x5D4;&#x5D2;&#x5D3;&#x5E8;&#x5D5;&#x5EA;
+            li.topnav
+              a(href='Home', onclick="deleteCookie()") &#x5D4;&#x5EA;&#x5E0;&#x5EA;&#x5E7;
+block content 
+      .head
+        h1 &#x5D4;&#x5D9;&#x5E2;&#x5D3;&#x5D9;&#x5DD; &#x5E9;&#x5DC;&#x5D9;
+        br
+        .container
+          .card#card
+            .card-header
+              img#image(src='/favs/1.jpg', alt='beach')
+            .card-body
+              h4#siteName #{variable1}
+              br
+              p#wind #{variable2}
+              br
+              p#details #{variable3}
+              form#form1(action='deleteSite' method='post') 
+                input#lat(form='form1' type='text' hidden name='lat')
+                input#lng(form='form1' type='text' hidden name='lng')
+                input.buttons(type="submit" form="form1"  value=" מחיקת יעד" onclick="return confirm('האם אתה בטוח שברצונך למחוק יעד זה?')")
+            br
+        br
+        select#changeSites(name="changeSites" onchange="changeSites()")
+          option(value="בחר") בחר
+          each site in sites
+            option(value=site.siteName) #{site.siteName}
+        br
+        a.buttons(href='addSite') הוסף יעד חדש &#10133

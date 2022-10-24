@@ -1,0 +1,45 @@
+extends layout.pug 
+block head 
+    title add Sites
+block menu 
+        .logo
+          a(href='Home')
+            img(src='logo1.png', alt='logo'  onclick="deleteCookie()" )
+        a(href='Home')
+        nav
+          a(href='Home')
+          ul
+            a(href='Home')
+            li.topnav
+              a(href='Home')
+              a(href='MySites') &#x5D4;&#x5D9;&#x5E2;&#x5D3;&#x5D9;&#x5DD; &#x5E9;&#x5DC;&#x5D9;
+            li.topnav
+              a(href='settings') &#x5D4;&#x5D2;&#x5D3;&#x5E8;&#x5D5;&#x5EA;
+            li.topnav
+              a(href='Home', onclick="deleteCookie()") &#x5D4;&#x5EA;&#x5E0;&#x5EA;&#x5E7;
+block content 
+        title Simple Map
+        script(src='https://polyfill.io/v3/polyfill.min.js?features=default')
+        link(rel='stylesheet', type='text/css', href='./style.css')
+        script(type='module', src='script.js')
+        #map
+        //
+          The `defer` attribute causes the callback to execute after the full HTML
+          document has been parsed. For non-blocking uses, avoiding race conditions,
+          and consistent behavior across browsers, consider loading using Promises
+          with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB34vzJiGZelITpfGqr9lgiOOpaE1i2ybU&callback=initMap&v=weekly', defer='')
+        h4#location
+        h4#weather 
+        br
+        form#form2(action='addSite' method='post')
+          input#lat(form='form2' type='text' hidden name='lat')
+          input#lng(form='form2' type='text' hidden name='lng')
+          label(for="locationName") : שם היעד מוצע באופן אוטומטי בכל לחיצה על המפה,לשינוי השם
+          br
+          input#locationName(form='form2' type='text' name='locationName')
+          br
+          input.buttons(form='form2' type='submit' value='הוסף')
+
+
+        

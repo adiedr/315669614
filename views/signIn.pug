@@ -1,0 +1,34 @@
+extends layout.pug 
+block head 
+    title sign in
+block menu 
+        .logo
+          a(href='Home')
+            img(src='logo1.png', alt='logo')
+        a(href='Home')
+        nav
+          a(href='Home.')
+          ul
+            a(href='Home')
+            li.topnav
+              a(href='Home')
+              a(href='Home') דף הבית
+            li.topnav
+              a(href='signIn') כניסה למשתמשים
+            li.topnav
+              a(href='signUp') הרשמה
+block content 
+    form#form1(action='signIn' method='post')
+      fieldset
+        legend &#x5DB;&#x5E0;&#x5D9;&#x5E1;&#x5EA; &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;&#x5D9;&#x5DD; 
+        br
+        h3 #{variable}
+        br
+        h3 !&#x5D1;&#x5E8;&#x5D5;&#x5DA; &#x5D4;&#x5D1;&#x5D0;
+        label(for='userName') :&#x5E9;&#x5DD; &#x5DE;&#x5E9;&#x5EA;&#x5DE;&#x5E9;
+        input#FullName.registration(form='form1' type='text' required='' name='userName')
+        label(for='password') :&#x5E1;&#x5D9;&#x5E1;&#x5DE;&#x5D4;
+        input#password.registration(form='form1' type='password' required='' name='password')
+        br
+        input.buttons(form='form1' type='submit' value='התחבר' )
+        br

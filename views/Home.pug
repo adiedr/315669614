@@ -1,0 +1,58 @@
+extends layout.pug 
+block head 
+    title Home page - Kite Zone
+block menu 
+        .logo
+          a(href='Home')
+            img(src='logo1.png', alt='logo')
+        a(href='Home')
+        nav
+          a(href='Home.')
+          ul
+            a(href='Home')
+            li.topnav
+              a(href='Home')
+              a(href='Home') דף הבית
+            li.topnav
+              a(href='signIn') כניסה למשתמשים
+            li.topnav
+              a(href='signUp') הרשמה
+block content 
+    .head
+      h1 יעדי הגלישה הכי נצפים
+    .container
+      .card
+        .card-header
+          img#image1(src='', alt='beach1')
+        .card-body
+          span.tag.tag-rec #1
+          br
+          h4.
+            #{title1}
+          p #{wind1}
+
+      .card
+        .card-header
+          img#image2(src='', alt='beach2')
+        .card-body
+          span.tag.tag-viewed #2
+          br
+          h4.
+             #{title2}
+          p #{wind2}
+            
+
+      .card
+        .card-header
+          img#image3(src='', alt='beach3')
+        .card-body
+          span.tag.tag-new #3
+          br
+          h4.
+            #{title3}
+          p #{wind3}
+      
+    script.
+      document.getElementById("image1").src='http://localhost:8080/favs/'+Math.floor((Math.random()*10)+1)+'.jpg';
+      document.getElementById("image2").src='http://localhost:8080/favs/'+Math.floor((Math.random()*10)+1)+'.jpg';
+      document.getElementById("image3").src='http://localhost:8080/favs/'+Math.floor((Math.random()*10)+1)+'.jpg';

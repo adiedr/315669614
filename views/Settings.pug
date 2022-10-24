@@ -1,0 +1,55 @@
+extends layout.pug 
+block head 
+    title Settings
+block menu 
+        .logo
+          a(href='Home')
+            img(src='logo1.png', alt='logo'  onclick="deleteCookie()")
+        nav
+          a(href='Home')
+          ul
+            a(href='Home')
+            li.topnav
+              a(href='Home')
+              a(href='MySites') &#x5D4;&#x5D9;&#x5E2;&#x5D3;&#x5D9;&#x5DD; &#x5E9;&#x5DC;&#x5D9;
+            li.topnav
+              a(href='settings') &#x5D4;&#x5D2;&#x5D3;&#x5E8;&#x5D5;&#x5EA;
+            li.topnav
+              a(href='Home', onclick="deleteCookie()") &#x5D4;&#x5EA;&#x5E0;&#x5EA;&#x5E7;
+block content 
+        
+        form#form1(action='settings', method='post')
+          fieldset
+            h2  #{variable1}
+            br
+            legend &#x5D4;&#x5D2;&#x5D3;&#x5E8;&#x5D5;&#x5EA;
+            label(for='changes')  ?אילו פרטים תרצה לעדכן 
+            br
+            select#changes(name="changes" onchange="changeOption()")
+              option(value='password') סיסמה
+              option(value='birthday') תאריך לידה
+              option(value='height' ) גובה
+              option(value='weight') משקל
+              option(value="kite") הוסף קייט
+              option(value="deleteKite") הסר קייט
+            br
+            label#password.hidden(for='password' ) :&#x5E1;&#x5D9;&#x5E1;&#x5DE;&#x5D4;
+            input#passwordinput.hidden(form='form1' type='password' name='password' onkeyup='validatePassword()')
+            br
+            span#password-error.errors
+            label#birthday.hidden(for='birthday' ) :&#x5EA;&#x5D0;&#x5E8;&#x5D9;&#x5DA; &#x5DC;&#x5D9;&#x5D3;&#x5D4;
+            input#birthdayinput.hidden(form='form1' type='date' name='birthday' min="1900-01-01" onkeyup='validateBD()')
+            label#height.hidden(for='height') :(&#x5D1;&#x5E1;&quot;&#x5DE;) &#x5D2;&#x5D5;&#x5D1;&#x5D4;
+            input#heightinput.hidden(form='form1' type='number'  min='50' max='230' name='height')
+            label#weight.hidden(for='weight') :(&#x5D1;&#x5E7;&#x5D9;&#x5DC;&#x5D5;) &#x5DE;&#x5E9;&#x5E7;&#x5DC;
+            input#weightinput.hidden(form='form1' type='number'  min='0' max='150' name='weight')
+            label#kite.hidden(for='kite' ) :קייט
+            input#kiteinput.hidden(form='form1' type='number' min='8' max='13' name='kite')
+            select#deleteKite.hidden(name="deleteKite")
+              option(value="בחר") בחר
+              each kite in kites
+                option(value=kite.kite) #{kite.kite}
+            br
+            input.buttons(form='form1', type='submit', value='שלח')
+            br
+

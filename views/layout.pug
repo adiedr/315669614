@@ -1,0 +1,47 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name="viewport", content='width=device-width,initial-scale=1')
+        block head 
+        script(src='script.js', defer)
+        link(rel="stylesheet", href="style.css")
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    body(onload='internationalWeather()')
+        #container
+            #header.
+            #right
+                h2  אתרי גלישה ברחבי העולם
+                br
+                .site1
+                    h4#site1
+                    br
+                    p#weather1
+                    br
+                    p#temp1
+                    br
+                br
+                .site2
+                    h4#site2
+                    br
+                    p#weather2
+                    br
+                    p#temp2
+                    br
+                br
+                .site3
+                    h4#site3
+                    br
+                    p#weather3
+                    br
+                    p#temp3
+                    br
+            #menu
+                block menu 
+            #info.info
+                block content 
+            #footer
+                footer Ⓒ Kite Zone
+
+
