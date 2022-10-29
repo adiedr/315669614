@@ -1,5 +1,4 @@
 const sql = require("./db");
-var path=require('path');
 
 const createNewCustomer = (req,res)=>{
     if (!req.body) {//if the form is empty

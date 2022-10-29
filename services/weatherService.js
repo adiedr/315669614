@@ -1,5 +1,4 @@
-const CRUD =require('../CRUD');
-const e = require('express');
+
 const weather =require('./weather')
 
 const getWeather = async (req, res, next) => {
