@@ -8,6 +8,8 @@ var sql = require('./db/db');
 const path = require ('path');
 const CRUD = require("./db/CRUD");
 const { getWeather } = require("./services/weatherService");
+const CreateDB = require('./db/createDB');
+const CSVToJSON = require('csvtojson');
 app.use(express.static('static'));
 var port =8080;
 const weather=require('./services/weather')
@@ -107,6 +109,13 @@ app.get('/addSite',(req,res)=>{
   }
   res.render('addSite');
 })
+app.get('/CreateTables',CreateDB.CreateTables);
+app.get("/InsertData", CreateDB.InsertData);
+app.get('/ShowCustomersTable', CreateDB.ShowCustomersTable);
+app.get('/ShowCustomerskitesTable', CreateDB.ShowCustomerskitesTable);
+app.get('/ShowInternationalsitesTable', CreateDB.ShowInternationalsitesTable);
+app.get('/ShowSitesTable', CreateDB.ShowSitesTable);
+app.get('/DropTables', CreateDB.DropTables);
 app.post("/settings",CRUD.update)
 app.post("/signUp",CRUD.createNewCustomer);
 app.post("/deleteSite",CRUD.deleteSite);
